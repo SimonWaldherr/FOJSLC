@@ -8,25 +8,28 @@ a collection of **free** (only **MIT**, **BSD**, **Apache** or **PD**) **JavaScr
 
 --
 
-Name        | Version | License
-------------|---------|---------
-bootstrap   | 2.0.4   | Apache
-chosen      | 0.9.8   | MIT
-colorize    | 0.0.1   | MIT
-highlight   | 7.0     | BSD
-impress.js  | 0.5.3   | MIT
-jquery      | 1.7.2   | MIT
-list        | 0.2.1   | MIT
-listdnd     | 0.2     | MIT
-modernizr   | 2.5.3.1 | MIT
-prototype   | 1.7     | MIT
-reqwest     | 5.2012  | MIT
-swipe       | 2.0     | MIT
+Name               | Version | License | at Github
+-------------------|---------|---------|-----------
+bootstrap          | 2.0.4   | Apache  | [twitter/bootstrap](https://github.com/twitter/bootstrap)
+chosen             | 0.9.8   | MIT     | [harvesthq/chosen](https://github.com/harvesthq/chosen)
+colorize           | 0.0.1   | MIT     | [SimonWaldherr/colorize.js](https://github.com/SimonWaldherr/colorize.js)
+highlight          | 7.0     | BSD     | [isagalaev/highlight.js](https://github.com/isagalaev/highlight.js)
+impress.js         | 0.5.3   | MIT     | [bartaz/impress.js](https://github.com/bartaz/impress.js)
+jquery             | 1.7.2   | MIT     | [jquery/jquery](https://github.com/jquery/jquery)
+json2              | 2011.10 | PD      | [douglascrockford/JSON-js](https://github.com/douglascrockford/JSON-js)
+list               | 0.2.1   | MIT     | [javve/list](https://github.com/javve/list)
+listdnd            | 0.2     | MIT     | [SimonWaldherr/listDnD](https://github.com/SimonWaldherr/listDnD)
+modernizr          | 2.5.3.1 | MIT     | [Modernizr/Modernizr](https://github.com/Modernizr/Modernizr)
+prototype          | 1.7     | MIT     | [sstephenson/prototype](https://github.com/sstephenson/prototype)
+reqwest            | 5.2012  | MIT     | [ded/reqwest](https://github.com/ded/reqwest)
+store              | 1.3.4   | MIT     | [marcuswestin/store.js](https://github.com/marcuswestin/store.js)
+swipe              | 2.0     | MIT     | [bradbirdsall/Swipe](https://github.com/bradbirdsall/Swipe)
+webshim-polyfiller | 1.8.10  | MIT     | [aFarkas/webshim](https://github.com/aFarkas/webshim)
 
 --
 
 all.7z hashes:  
 
-**MD5**: 63217402ed59d760f2e8a805a42e8229  
-**SHA1**: d8909a800d447c70a7f8ab31e5f722565fb78c29  
-**SHA256**: 151f6a006d0e295c1d4f0c0acd818d148d95eed9bf35dc97e844d6003ba34b68
+**MD5**: cfd1a4544aa3e6adec8306f32afd8bb9  
+**SHA1**: 5e473d37ea450cb945865d7cc53bbb82ead167fd  
+**SHA256**: e9366531745ccb7112feb9224d8735792a4bbb1dda49a8e9ca5725dabf41c558
