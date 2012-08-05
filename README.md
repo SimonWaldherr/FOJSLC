@@ -4,7 +4,7 @@
 
 --
 
-a collection of **free** (only **MIT**, **BSD**, **Apache** or **PD**) **JavaScript** libs  
+a collection of **free** (only **MIT**, **BSD**, **Apache**, **CC**, **GPL** or **PD**) **JavaScript** libs  
 
 --
 
@@ -19,6 +19,7 @@ impress.js         | 0.5.3   | MIT     | [bartaz/impress.js](https://github.com/
 jquery             | 1.7.2   | MIT     | [jquery/jquery](https://github.com/jquery/jquery)
 jsHashes           | 0.1.4b  | BSD     | [h2non/jsHashes](https://github.com/h2non/jsHashes)
 json2              | 2011.10 | PD      | [douglascrockford/JSON-js](https://github.com/douglascrockford/JSON-js)
+lightbox.js        | 0.5     | CC-by   | [SimonWaldherr/lightbox.js](https://github.com/SimonWaldherr/lightbox.js)
 list               | 0.2.1   | MIT     | [javve/list](https://github.com/javve/list)
 listdnd            | 0.2     | MIT     | [SimonWaldherr/listDnD](https://github.com/SimonWaldherr/listDnD)
 modernizr          | 2.5.3.1 | MIT     | [Modernizr/Modernizr](https://github.com/Modernizr/Modernizr)
@@ -30,9 +31,3 @@ swipe              | 2.0     | MIT     | [bradbirdsall/Swipe](https://github.com
 webshim-polyfiller | 1.8.10  | MIT     | [aFarkas/webshim](https://github.com/aFarkas/webshim)
 
 --
-
-all.7z hashes:  
-
-**MD5**: 78619733e254c2e791fa7482d310a540  
-**SHA1**: 2d66a75a0fcf8797fafb2e63d6d0a9b40e432bc0  
-**SHA256**: 710cd162f31f9d78cecce647b1a2331e7188f65492decfc231b67188413c8628

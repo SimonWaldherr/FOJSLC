@@ -1,0 +1,42 @@
+[submodule "submodules/session.js"]
+	path = submodules/session.js
+	url = git://github.com/codejoust/session.js.git
+[submodule "submodules/jsHashes"]
+	path = submodules/jsHashes
+	url = git://github.com/h2non/jsHashes.git
+[submodule "submodules/highlight.js"]
+	path = submodules/highlight.js
+	url = git://github.com/isagalaev/highlight.js.git
+[submodule "submodules/webshim-polyfiller"]
+	path = submodules/webshim-polyfiller
+	url = git://github.com/aFarkas/webshim.git
+[submodule "submodules/webshim"]
+	path = submodules/webshim
+	url = git://github.com/aFarkas/webshim.git
+[submodule "submodules/chibi"]
+	path = submodules/chibi
+	url = git://github.com/kylebarrow/chibi.git
+[submodule "submodules/bootstrap"]
+	path = submodules/bootstrap
+	url = git://github.com/twitter/bootstrap.git
+[submodule "submodules/chosen"]
+	path = submodules/chosen
+	url = git://github.com/harvesthq/chosen.git
+[submodule "submodules/colorize"]
+	path = submodules/colorize
+	url = https://github.com/SimonWaldherr/colorize.js
+[submodule "submodules/highlight"]
+	path = submodules/highlight
+	url = https://github.com/isagalaev/highlight.js
+[submodule "submodules/impress.js"]
+	path = submodules/impress.js
+	url = https://github.com/bartaz/impress.js
+[submodule "submodules/jquery"]
+	path = submodules/jquery
+	url = https://github.com/jquery/jquery
+[submodule "submodules/list"]
+	path = submodules/list
+	url = git://github.com/javve/list.git
+[submodule "submodules/lightbox.js"]
+	path = submodules/lightbox.js
+	url = git@github.com:SimonWaldherr/lightbox.js.git
