@@ -4,14 +4,14 @@
 
 --
 
-a collection of **free** (only **MIT**, **BSD**, **Apache**, **CC**, **GPL** or **PD**) **JavaScript** libs  
+a collection of **free** (only **Apache**-, **BSD**-, **CC**-, **GPL**-, **MIT**-License  or **PD**) **JavaScript** libs  
 
 --
 
 Name               | Version | License | at Github
 -------------------|---------|---------|-----------
 bootstrap          | 2.0.4   | Apache  | [twitter/bootstrap](https://github.com/twitter/bootstrap)
-chibi              | 0.9     | **GPL** | [kylebarrow/chibi](https://github.com/kylebarrow/chibi)
+chibi              | 0.9     | MIT     | [kylebarrow/chibi](https://github.com/kylebarrow/chibi)
 chosen             | 0.9.8   | MIT     | [harvesthq/chosen](https://github.com/harvesthq/chosen)
 colorize           | 0.0.1   | MIT     | [SimonWaldherr/colorize.js](https://github.com/SimonWaldherr/colorize.js)
 highlight          | 7.0     | BSD     | [isagalaev/highlight.js](https://github.com/isagalaev/highlight.js)
@@ -28,6 +28,7 @@ reqwest            | 5.2012  | MIT     | [ded/reqwest](https://github.com/ded/re
 session.js         | 0.4.1   | MIT     | [codejoust/session.js](https://github.com/codejoust/session.js)
 store              | 1.3.4   | MIT     | [marcuswestin/store.js](https://github.com/marcuswestin/store.js)
 swipe              | 2.0     | MIT     | [bradbirdsall/Swipe](https://github.com/bradbirdsall/Swipe)
+tableCtrl          | 0.02    | GPLv3   | [SimonWaldherr/tableCtrl](https://github.com/SimonWaldherr/tableCtrl)
 webshim-polyfiller | 1.8.10  | MIT     | [aFarkas/webshim](https://github.com/aFarkas/webshim)
 
 --

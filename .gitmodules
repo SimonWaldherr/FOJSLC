@@ -40,3 +40,15 @@
 [submodule "submodules/lightbox.js"]
 	path = submodules/lightbox.js
 	url = git@github.com:SimonWaldherr/lightbox.js.git
+[submodule "submodules/tableCtrl"]
+	path = submodules/tableCtrl
+	url = git@github.com:SimonWaldherr/tableCtrl.git
+[submodule "submodules/swipe"]
+	path = submodules/swipe
+	url = git://github.com/bradbirdsall/Swipe.git
+[submodule "submodules/store.js"]
+	path = submodules/store.js
+	url = git://github.com/marcuswestin/store.js.git
+[submodule "submodules/reqwest"]
+	path = submodules/reqwest
+	url = git://github.com/ded/reqwest.git
