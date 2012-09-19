@@ -52,3 +52,12 @@
 [submodule "submodules/reqwest"]
 	path = submodules/reqwest
 	url = git://github.com/ded/reqwest.git
+[submodule "submodules/underscore"]
+	path = submodules/underscore
+	url = git://github.com/documentcloud/underscore.git
+[submodule "submodules/d3"]
+	path = submodules/d3
+	url = git://github.com/mbostock/d3.git
+[submodule "submodules/CamanJS"]
+	path = submodules/CamanJS
+	url = git://github.com/meltingice/CamanJS.git

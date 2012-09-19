@@ -11,9 +11,11 @@ a collection of **free** (only **Apache**-, **BSD**-, **CC**-, **GPL**-, **MIT**
 Name               | Version | License | at Github
 -------------------|---------|---------|-----------
 bootstrap          | 2.0.4   | Apache  | [twitter/bootstrap](https://github.com/twitter/bootstrap)
+camanjs            | 1.3.3   | BSD     | [meltingice/CamanJS](https://github.com/meltingice/CamanJS)
 chibi              | 0.9     | MIT     | [kylebarrow/chibi](https://github.com/kylebarrow/chibi)
 chosen             | 0.9.8   | MIT     | [harvesthq/chosen](https://github.com/harvesthq/chosen)
 colorize           | 0.0.1   | MIT     | [SimonWaldherr/colorize.js](https://github.com/SimonWaldherr/colorize.js)
+d3                 | 2       | BSD     | [mbostock/d3](https://github.com/mbostock/d3)
 highlight          | 7.0     | BSD     | [isagalaev/highlight.js](https://github.com/isagalaev/highlight.js)
 impress.js         | 0.5.3   | MIT     | [bartaz/impress.js](https://github.com/bartaz/impress.js)
 jquery             | 1.7.2   | MIT     | [jquery/jquery](https://github.com/jquery/jquery)
@@ -29,6 +31,7 @@ session.js         | 0.4.1   | MIT     | [codejoust/session.js](https://github.c
 store              | 1.3.4   | MIT     | [marcuswestin/store.js](https://github.com/marcuswestin/store.js)
 swipe              | 2.0     | MIT     | [bradbirdsall/Swipe](https://github.com/bradbirdsall/Swipe)
 tableCtrl          | 0.02    | GPLv3   | [SimonWaldherr/tableCtrl](https://github.com/SimonWaldherr/tableCtrl)
+underscore         | 1.3.3   | MIT     | [documentcloud/underscore](https://github.com/documentcloud/underscore)
 webshim-polyfiller | 1.8.10  | MIT     | [aFarkas/webshim](https://github.com/aFarkas/webshim)
 
 --
