@@ -25,9 +25,6 @@
 [submodule "submodules/colorize"]
 	path = submodules/colorize
 	url = https://github.com/SimonWaldherr/colorize.js
-[submodule "submodules/highlight"]
-	path = submodules/highlight
-	url = https://github.com/isagalaev/highlight.js
 [submodule "submodules/impress.js"]
 	path = submodules/impress.js
 	url = https://github.com/bartaz/impress.js

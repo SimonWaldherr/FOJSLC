@@ -129,14 +129,28 @@
   // The right-associative version of reduce, also known as `foldr`.
   // Delegates to **ECMAScript 5**'s native `reduceRight` if available.
   _.reduceRight = _.foldr = function(obj, iterator, memo, context) {
+    var initial = arguments.length > 2;
     if (obj == null) obj = [];
     if (nativeReduceRight && obj.reduceRight === nativeReduceRight) {
       if (context) iterator = _.bind(iterator, context);
       return arguments.length > 2 ? obj.reduceRight(iterator, memo) : obj.reduceRight(iterator);
     }
-    // A right reduce on an object has undefined ordering, so we don't bother.
-    var reversed = _.isArray(obj) ? obj.reverse() : obj;
-    return _.reduce(reversed, iterator, memo, context);
+    var length = obj.length;
+    if (length !== +length) {
+      var keys = _.keys(obj);
+      length = keys.length;
+    }
+    each(obj, function(value, index, list) {
+      index = keys ? keys[--length] : --length;
+      if (!initial) {
+        memo = obj[index];
+        initial = true;
+      } else {
+        memo = iterator.call(context, memo, obj[index], index, list);
+      }
+    });
+    if (!initial) throw new TypeError('Reduce of empty array with no initial value');
+    return memo;
   };
 
   // Return the first value which passes a truth test. Aliased as `detect`.
@@ -202,9 +216,9 @@
     return !!result;
   };
 
-  // Determine if a given value is included in the array or object using `===`.
-  // Aliased as `contains`.
-  _.include = _.contains = function(obj, target) {
+  // Determine if the array or object contains a given value (using `===`).
+  // Aliased as `include`.
+  _.contains = _.include = function(obj, target) {
     var found = false;
     if (obj == null) return found;
     if (nativeIndexOf && obj.indexOf === nativeIndexOf) return obj.indexOf(target) != -1;
@@ -322,7 +336,7 @@
   // to group by, or a function that returns the criterion.
   _.groupBy = function(obj, value, context) {
     return group(obj, value, context, function(result, key, value) {
-      (result[key] || (result[key] = [])).push(value);
+      (_.has(result, key) ? result[key] : (result[key] = [])).push(value);
     });
   };
 
@@ -331,20 +345,20 @@
   // criterion.
   _.countBy = function(obj, value, context) {
     return group(obj, value, context, function(result, key, value) {
-      result[key] || (result[key] = 0);
+      if (!_.has(result, key)) result[key] = 0;
       result[key]++;
     });
   };
 
   // Use a comparator function to figure out the smallest index at which
   // an object should be inserted so as to maintain order. Uses binary search.
-  _.sortedIndex = function(array, obj, iterator) {
+  _.sortedIndex = function(array, obj, iterator, context) {
     iterator || (iterator = _.identity);
-    var value = iterator(obj);
+    var value = iterator.call(context, obj);
     var low = 0, high = array.length;
     while (low < high) {
-      var mid = (low + high) >> 1;
-      iterator(array[mid]) < value ? low = mid + 1 : high = mid;
+      var mid = (low + high) >>> 1;
+      iterator.call(context, array[mid]) < value ? low = mid + 1 : high = mid;
     }
     return low;
   };
@@ -427,12 +441,12 @@
   // Produce a duplicate-free version of the array. If the array has already
   // been sorted, you have the option of using a faster algorithm.
   // Aliased as `unique`.
-  _.uniq = _.unique = function(array, isSorted, iterator) {
-    var initial = iterator ? _.map(array, iterator) : array;
+  _.uniq = _.unique = function(array, isSorted, iterator, context) {
+    var initial = iterator ? _.map(array, iterator, context) : array;
     var results = [];
     var seen = [];
     each(initial, function(value, index) {
-      if (isSorted ? (!index || seen[seen.length - 1] !== value) : !_.include(seen, value)) {
+      if (isSorted ? (!index || seen[seen.length - 1] !== value) : !_.contains(seen, value)) {
         seen.push(value);
         results.push(array[index]);
       }
@@ -461,7 +475,7 @@
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
     var rest = concat.apply(ArrayProto, slice.call(arguments, 1));
-    return _.filter(array, function(value){ return !_.include(rest, value); });
+    return _.filter(array, function(value){ return !_.contains(rest, value); });
   };
 
   // Zip together multiple lists into a single array -- elements that share
@@ -499,21 +513,25 @@
   // for **isSorted** to use binary search.
   _.indexOf = function(array, item, isSorted) {
     if (array == null) return -1;
-    var i, l;
+    var i = 0, l = array.length;
     if (isSorted) {
-      i = _.sortedIndex(array, item);
-      return array[i] === item ? i : -1;
+      if (typeof isSorted == 'number') {
+        i = (isSorted < 0 ? Math.max(0, l + isSorted) : isSorted);
+      } else {
+        i = _.sortedIndex(array, item);
+        return array[i] === item ? i : -1;
+      }
     }
-    if (nativeIndexOf && array.indexOf === nativeIndexOf) return array.indexOf(item);
-    for (i = 0, l = array.length; i < l; i++) if (array[i] === item) return i;
+    if (nativeIndexOf && array.indexOf === nativeIndexOf) return array.indexOf(item, isSorted);
+    for (; i < l; i++) if (array[i] === item) return i;
     return -1;
   };
 
   // Delegates to **ECMAScript 5**'s native `lastIndexOf` if available.
-  _.lastIndexOf = function(array, item) {
+  _.lastIndexOf = function(array, item, fromIndex) {
     if (array == null) return -1;
-    if (nativeLastIndexOf && array.lastIndexOf === nativeLastIndexOf) return array.lastIndexOf(item);
-    var i = array.length;
+    if (nativeLastIndexOf && array.lastIndexOf === nativeLastIndexOf) return array.lastIndexOf(item, fromIndex);
+    var i = (fromIndex != null ? fromIndex : array.length);
     while (i--) if (array[i] === item) return i;
     return -1;
   };
@@ -704,22 +722,23 @@
 
   // Retrieve the values of an object's properties.
   _.values = function(obj) {
-    return _.map(obj, _.identity);
+    var values = [];
+    for (var key in obj) if (_.has(obj, key)) values.push(obj[key]);
+    return values;
   };
 
   // Convert an object into a list of `[key, value]` pairs.
   _.pairs = function(obj) {
-    return _.map(obj, function(value, key) {
-      return [key, value];
-    });
+    var pairs = [];
+    for (var key in obj) if (_.has(obj, key)) pairs.push([key, obj[key]]);
+    return pairs;
   };
 
   // Invert the keys and values of an object. The values must be serializable.
   _.invert = function(obj) {
-    return _.reduce(obj, function(memo, value, key) {
-      memo[value] = key;
-      return memo;
-    }, {});
+    var result = {};
+    for (var key in obj) if (_.has(obj, key)) result[obj[key]] = key;
+    return result;
   };
 
   // Return a sorted list of the function names available on the object.
@@ -757,7 +776,7 @@
     var copy = {};
     var keys = concat.apply(ArrayProto, slice.call(arguments, 1));
     for (var key in obj) {
-      if (!_.include(keys, key)) copy[key] = obj[key];
+      if (!_.contains(keys, key)) copy[key] = obj[key];
     }
     return copy;
   };
@@ -847,8 +866,13 @@
         }
       }
     } else {
-      // Objects with different constructors are not equivalent.
-      if ('constructor' in a != 'constructor' in b || a.constructor != b.constructor) return false;
+      // Objects with different constructors are not equivalent, but `Object`s
+      // from different frames are.
+      var aCtor = a.constructor, bCtor = b.constructor;
+      if (aCtor !== bCtor && !(_.isFunction(aCtor) && (aCtor instanceof aCtor) &&
+                               _.isFunction(bCtor) && (bCtor instanceof bCtor))) {
+        return false;
+      }
       // Deep compare objects.
       for (var key in a) {
         if (_.has(a, key)) {
@@ -888,7 +912,7 @@
 
   // Is a given value a DOM element?
   _.isElement = function(obj) {
-    return !!(obj && obj.nodeType == 1);
+    return !!(obj && obj.nodeType === 1);
   };
 
   // Is a given value an array?
@@ -914,6 +938,13 @@
   if (!_.isArguments(arguments)) {
     _.isArguments = function(obj) {
       return !!(obj && _.has(obj, 'callee'));
+    };
+  }
+
+  // Optimize `isFunction` if appropriate.
+  if (typeof (/./) !== 'function') {
+    _.isFunction = function(obj) {
+      return typeof obj === 'function';
     };
   }
 
